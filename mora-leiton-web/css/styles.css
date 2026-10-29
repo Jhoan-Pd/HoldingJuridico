@@ -384,7 +384,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between;
   padding-block: 20px 32px; border-top: 1px solid #26272B; font-size: 13px;
 }
-.site-footer__bottom span:last-child { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.site-footer__bottom > span:last-child { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.page-404 { background: var(--black); }
 
 /* ---------- WhatsApp flotante ---------- */
 .wa-float {

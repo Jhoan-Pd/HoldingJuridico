@@ -1,0 +1,14 @@
+# Vercel CLI
+.vercel/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Dependencias locales (si se instalan herramientas)
+node_modules/

@@ -1,0 +1,6 @@
+# Ambiente de pruebas: no indexar.
+# Al pasar a producción, reemplazar por:
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /
