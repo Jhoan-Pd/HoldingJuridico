@@ -19,8 +19,10 @@ mora-leiton-web/
   js/main.js               Menú móvil, preguntas frecuentes, pestañas, filtros y formulario
   favicon.svg              Ícono del sitio
   robots.txt               Bloqueo de indexación (ambiente de pruebas)
-  vercel.json              Configuración de Vercel
+vercel.json                Configuración de Vercel (en la raíz del repositorio)
 ```
+
+`vercel.json` le indica a Vercel que publique la carpeta `mora-leiton-web` (`"outputDirectory"`), así que no hace falta configurar nada en el panel de Vercel.
 
 ## URLs
 
@@ -44,14 +46,15 @@ Si alguien entra a `/nosotros.html`, Vercel lo redirige a `/nosotros`.
 Cada `push` a `main` actualiza el ambiente de pruebas, y cada rama o pull request recibe su propia URL de vista previa.
 
 1. Entra a [vercel.com/new](https://vercel.com/new) e importa el repositorio `Jhoan-Pd/HoldingJuridico`.
-2. En **Root Directory**, haz clic en *Edit* y elige `mora-leiton-web`.
-3. En **Framework Preset**, deja *Other*. No hace falta Build Command ni Output Directory.
-4. Haz clic en **Deploy**.
+2. Deja todo como viene: **Root Directory** vacío (la raíz del repositorio) y **Framework Preset** en *Other*.
+3. Haz clic en **Deploy**.
+
+> Importante: no pongas `mora-leiton-web` como Root Directory. Si lo haces, Vercel ignora el `vercel.json` de la raíz y se pierden las URLs limpias.
 
 ### Opción B: desde la terminal
 
 ```bash
-cd mora-leiton-web
+# desde la raíz del repositorio (donde está vercel.json)
 npx vercel          # primera vez: inicia sesión y crea el proyecto (despliegue de vista previa)
 npx vercel --prod   # actualiza la URL principal del proyecto
 ```
@@ -66,7 +69,7 @@ Como los enlaces usan URLs limpias (`/nosotros`), abrir los archivos con doble c
 npx serve mora-leiton-web
 ```
 
-y abre `http://localhost:3000`. También funciona `npx vercel dev` dentro de `mora-leiton-web`.
+y abre `http://localhost:3000`. También funciona `npx vercel dev` desde la raíz del repositorio.
 
 ## Cómo funciona el formulario
 
@@ -76,7 +79,7 @@ No hay servidor, así que al enviar el formulario se abre WhatsApp (+57 317 655 
 
 Cuando el sitio esté aprobado y tenga su dominio definitivo:
 
-1. En `mora-leiton-web/vercel.json`, borra la línea `X-Robots-Tag` (`noindex, nofollow`).
+1. En `vercel.json`, borra el bloque `X-Robots-Tag` (`noindex, nofollow`).
 2. En `mora-leiton-web/robots.txt`, cambia `Disallow: /` por `Allow: /`.
 3. Conecta el dominio en Vercel (*Settings → Domains*).
 4. Agrega en el `<head>` de cada página la etiqueta `<link rel="canonical" href="https://DOMINIO/...">` y una imagen para compartir en redes (`og:image`, con URL absoluta).
